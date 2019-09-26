@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using UniversityChat.Models;
+
+<div class="row">
+    <!-- Emfanise to onoma tou kathe xrhsth -->
+    <div class="col-md-12">
+        @using (Html.BeginForm("sendMessage", "Message"))
+        {
+            <div class="form-group shadow-textarea">
+                <label for="text-area">Type your message</label>
+                <textarea class="form-control z-depth-1" id="text-area" name="messagetext" rows="3" placeholder="Write something here..." required></textarea>
+            </div>
+            <button class="btn btn-primary" type="submit">Send</button>
+        }
+
+    </div>
+    <div class="col-md-12">
+        <ul>
+            @foreach (var message in ViewData["message_list"] as IList<MessageModel>)
+            {
+                <li>
+                    @message.messageText "Posted By" @message.username on @message.dateTime
+                </li>
+            }
+        </ul>
+    </div>
+</div>

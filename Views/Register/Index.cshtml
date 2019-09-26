@@ -1,0 +1,51 @@
+﻿@{
+    ViewBag.Title = "Register Form";
+}
+<div class="jumbotron">
+    <h1>Register</h1>
+    <p class="lead">This application demonstrate the web security concept</p>
+</div>
+<div class="row">
+    <div class="col-md-12">
+
+        @using (Html.BeginForm("register", "register"))
+        {
+
+            <div class="form-group">
+                <label for="uname">Firstname:</label>
+                <input type="text" class="form-control" placeholder="Enter fistname" name="firstName" required>
+            </div>
+
+            <div class="form-group">
+                <label for="uname">LastName:</label>
+                <input type="text" class="form-control" placeholder="Enter lastname" name="lastName" required>
+            </div>
+
+            <div class="form-group">
+                <label for="uname">Username:</label>
+                <input type="text" class="form-control" placeholder="Enter username" name="username" required>
+            </div>
+
+            <div class="form-group">
+                <label for="uname">Password:</label>
+                <input type="text" class="form-control" placeholder="password" name="password" required>
+            </div>
+
+            <div class="form-group">
+                @Html.DropDownList("role", new List<SelectListItem>
+              {
+                 new SelectListItem{ Text="Student", Value = "1" },
+                 new SelectListItem{ Text="Professor", Value = "2" },
+              })
+            </div>
+            <br />
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        }
+
+    </div>
+</div>
+
+
+
+
